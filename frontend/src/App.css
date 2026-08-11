@@ -414,3 +414,19 @@ main {
     font-size: 52px;
   }
 }
+.loading-message {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.loading-message h3 {
+  margin: 0 0 12px;
+}
+
+.loading-message p {
+  margin: 6px 0;
+  opacity: 0.8;
+}

@@ -143,12 +143,20 @@ function App() {
 
             <button
               className="generate-btn"
-              onClick={handleGenerate}
-              disabled={loading}
-            >
-              {loading ? "✨ Generating..." : "✦ Generate Content"}
+             onClick={handleGenerate}
+             disabled={loading}
+               >
+             {loading ? "✨ Creating..." : "✦ Generate Content"}
             </button>
 
+            {loading && (
+            <div className="loading-message">
+               <h3>✨ Creating your content...</h3>
+               <p>🎬 Preparing YouTube content</p>
+               <p>📸 Preparing social content</p>
+               <p>🔎 Optimizing keywords...</p>
+             </div>
+              )}
             {error && <p className="error-message">{error}</p>}
           </div>
         </section>
