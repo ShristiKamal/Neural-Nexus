@@ -1,8 +1,6 @@
 node_modules/
 .env
 dist/
-App.css
-App.jsx
 App.zip
 TrendSpark-AI.html
 vite.config.js

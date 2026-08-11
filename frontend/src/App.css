@@ -1,0 +1,416 @@
+/* ================================
+   TrendSpark AI - Main Styles
+   ================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b1020;
+  --bg-secondary: #11182d;
+  --card: #151d35;
+  --card-hover: #1b2643;
+  --text: #f5f7ff;
+  --muted: #aab3c8;
+  --border: #273252;
+  --accent: #7c5cff;
+  --accent-light: #9a7cff;
+  --accent-bg: rgba(124, 92, 255, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* ================================
+   Header
+   ================================ */
+
+header {
+  width: 100%;
+  min-height: 72px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11, 16, 32, 0.95);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+/* ================================
+   Main
+   ================================ */
+
+main {
+  width: 100%;
+}
+
+/* ================================
+   Hero
+   ================================ */
+
+.hero {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 24px 70px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(124, 92, 255, 0.45);
+  border-radius: 999px;
+  background: var(--accent-bg);
+  color: #bbaeff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: var(--accent-light);
+}
+
+.subtitle {
+  max-width: 650px;
+  margin: 24px auto 42px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ================================
+   Generator Box
+   ================================ */
+
+.generator-box {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  text-align: left;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.generator-box label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.generator-box textarea,
+.generator-box select {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: var(--bg-secondary);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.generator-box textarea {
+  min-height: 125px;
+  resize: vertical;
+}
+
+.generator-box textarea::placeholder {
+  color: #707b95;
+}
+
+.generator-box textarea:focus,
+.generator-box select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.12);
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.generate-btn:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   Features
+   ================================ */
+
+.features {
+  width: min(1100px, 90%);
+  margin: 0 auto 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  min-height: 150px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  text-align: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: var(--card-hover);
+}
+
+.feature-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent-light);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.feature-card h3 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ================================
+   Results
+   ================================ */
+
+.results {
+  width: min(1100px, 90%);
+  margin: 0 auto 100px;
+  padding-top: 20px;
+}
+
+.results > h2 {
+  margin: 0 0 30px;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.content-card {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.content-card h3 {
+  margin: 0 0 15px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.content-card p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.copy-btn {
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+
+.extra-card {
+  margin-top: 20px;
+}
+
+/* ================================
+   Viral Prediction
+   ================================ */
+
+.viral-card {
+  margin-top: 30px;
+  padding: 35px;
+  border: 1px solid rgba(124, 92, 255, 0.45);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.14),
+    rgba(17, 24, 45, 0.95)
+  );
+  text-align: center;
+}
+
+.viral-card h2 {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+.viral-score {
+  margin: 10px 0 25px;
+  font-size: 64px;
+  font-weight: 800;
+  color: var(--accent-light);
+  line-height: 1;
+}
+
+.viral-score span {
+  margin-left: 4px;
+  color: var(--muted);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.viral-card p {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+/* ================================
+   Responsive Design
+   ================================ */
+
+@media (max-width: 800px) {
+  header {
+    padding: 0 5%;
+  }
+
+  nav {
+    gap: 16px;
+  }
+
+  .hero {
+    padding-top: 55px;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    min-height: auto;
+    padding: 18px 5%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    gap: 20px;
+  }
+
+  .hero {
+    padding: 45px 16px 55px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .generator-box {
+    padding: 20px;
+  }
+
+  .features {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+
+  .results {
+    width: 90%;
+  }
+
+  .viral-score {
+    font-size: 52px;
+  }
+}
