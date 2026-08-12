@@ -37,31 +37,41 @@ function App() {
       console.log("FULL BACKEND RESPONSE:", data);
 
       if (!response.ok || !data.success) {
-        throw new Error(data.error || "Failed to generate content.");
-      }
+  throw new Error(data.error || "Failed to generate content.");
+}
 
-      setContent(data.data);
-      setGenerated(true);
-    } catch (error) {
-      console.error("Generation error:", error);
+setContent(data.data);
+setGenerated(true);
 
-      if (
-        error.message.includes("429") ||
-        error.message.toLowerCase().includes("quota")
-      ) {
-        setError(
-          "⚠️ Gemini API quota has been reached. Please try again after the quota resets."
-        );
-      } else {
-        setError(
-          error.message || "Unable to generate content. Please try again."
-        );
-      }
+} catch (error) {
+  console.error("Generation error:", error);
 
-      setGenerated(false);
-    } finally {
-      setLoading(false);
-    }
+  if (
+    error.message.includes("429") ||
+    error.message.toLowerCase().includes("quota")
+  ) {
+    setError(
+      "⚠️ Gemini API quota has been reached. Please try again after the quota resets."
+    );
+  } else if (
+    error.message.includes("503") ||
+    error.message.toLowerCase().includes("high demand") ||
+    error.message.toLowerCase().includes("unavailable")
+  ) {
+    setError(
+      "⚠️ The AI service is temporarily busy. Please try again in a moment."
+    );
+  } else {
+    setError(
+      error.message || "Unable to generate content. Please try again."
+    );
+  }
+
+  setGenerated(false);
+
+} finally {
+  setLoading(false);
+}
   };
 
   const copyText = async (text, name) => {
