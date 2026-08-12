@@ -84,6 +84,18 @@ function App() {
   const hashtags = content?.hashtags || "";
   const keywords = content?.seoKeywords || "";
   const contentScore = content?.contentScore || 0;
+  const hashtagList = hashtags.match(/#[\w]+/g) || [];
+
+const getPlatformLinks = (hashtag) => {
+  const encodedHashtag = encodeURIComponent(hashtag);
+
+  return {
+    instagram: `https://www.instagram.com/explore/tags/${hashtag.replace("#", "")}/`,
+    x: `https://x.com/search?q=${encodedHashtag}`,
+    youtube: `https://www.youtube.com/results?search_query=${encodedHashtag}`,
+    linkedin: `https://www.linkedin.com/search/results/?keywords=${encodedHashtag}`,
+  };
+};
 
   return (
     <>
@@ -305,18 +317,62 @@ function App() {
               )}
             </div>
 
-            <div className="content-card extra-card">
-              <h3>🔥 Trending Hashtags</h3>
-              <p>{hashtags}</p>
+           <div className="content-card extra-card">
+           <h3>🔥 Trending Hashtags</h3>
 
-              <button
-                className="copy-btn"
-                onClick={() => copyText(hashtags, "hashtags")}
-              >
-                {copied === "hashtags" ? "✓ Copied!" : "📋 Copy"}
-              </button>
-            </div>
+            <div className="hashtag-list">
+             {hashtagList.map((hashtag, index) => {
+             const links = getPlatformLinks(hashtag);
 
+            return (
+            <div className="hashtag-item" key={`${hashtag}-${index}`}>
+           <strong>{hashtag}</strong>
+
+           <div className="platform-links">
+            <a
+              href={links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📸 Instagram
+            </a>
+
+            <a
+              href={links.x}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              𝕏 X
+            </a>
+
+            <a
+              href={links.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ▶ YouTube
+            </a>
+
+            <a
+              href={links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              💼 LinkedIn
+             </a>
+           </div>
+         </div>
+         );
+        })}
+       </div>
+
+  <button
+    className="copy-btn"
+    onClick={() => copyText(hashtags, "hashtags")}
+  >
+    {copied === "hashtags" ? "✓ Copied!" : "📋 Copy"}
+  </button>
+</div>
             <div className="content-card extra-card">
               <h3>🔎 SEO Keywords</h3>
               <p>{keywords}</p>
