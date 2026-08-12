@@ -21,7 +21,8 @@ message: "TrendSpark AI Backend is running!",
 
 app.post("/api/generate", async (req, res) => {
 try {
-const { topic } = req.body;
+  const { topic, tone } = req.body;
+  const selectedTone = tone || "Professional";
 
 
 if (!topic || !topic.trim()) {
@@ -35,6 +36,9 @@ const prompt =
   "Create social media content about this topic: " +
   topic +
   "\n\n" +
+  "Use this tone for all generated content: " +
+  selectedTone +
+  ".\n\n" +
   "Return ONLY valid JSON in exactly this format:\n\n" +
   "{\n" +
   '  "youtubeTitle": "YouTube title",\n' +

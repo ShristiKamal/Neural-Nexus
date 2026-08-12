@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   const [topic, setTopic] = useState("");
   const [platform, setPlatform] = useState("All Platforms");
+  const [tone, setTone] = useState("Professional");
   const [generated, setGenerated] = useState(false);
   const [copied, setCopied] = useState("");
   const [content, setContent] = useState(null);
@@ -26,9 +27,10 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          topic: topic.trim(),
-        }),
+       body: JSON.stringify({
+       topic: topic.trim(),
+       tone: tone,
+       }),
       });
 
       const data = await response.json();
@@ -162,6 +164,22 @@ const getPlatformLinks = (hashtag) => {
               <option value="LinkedIn">LinkedIn</option>
               <option value="X">X (Twitter)</option>
             </select>
+            <label>Choose Tone</label>
+
+           <select
+            value={tone}
+            onChange={(event) => {
+             setTone(event.target.value);
+             setGenerated(false);
+            }}
+          >
+        <option value="Professional">Professional</option>
+        <option value="Casual">Casual</option>
+        <option value="Funny">Funny</option>
+        <option value="Educational">Educational</option>
+        <option value="Inspirational">Inspirational</option>
+        <option value="Creative">Creative</option>
+        </select>
 
             <button
               className="generate-btn"
